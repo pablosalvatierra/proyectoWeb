@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundles.EditClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundles.EditClienteLabel_codCli}" for="codCli" />
+                    <h:inputText id="codCli" value="#{clienteController.selected.codCli}" title="#{bundles.EditClienteTitle_codCli}" required="true" requiredMessage="#{bundles.EditClienteRequiredMessage_codCli}"/>
+                    <h:outputLabel value="#{bundles.EditClienteLabel_ci}" for="ci" />
+                    <h:inputText id="ci" value="#{clienteController.selected.ci}" title="#{bundles.EditClienteTitle_ci}" required="true" requiredMessage="#{bundles.EditClienteRequiredMessage_ci}"/>
+                    <h:outputLabel value="#{bundles.EditClienteLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{clienteController.selected.nombres}" title="#{bundles.EditClienteTitle_nombres}" required="true" requiredMessage="#{bundles.EditClienteRequiredMessage_nombres}"/>
+                    <h:outputLabel value="#{bundles.EditClienteLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundles.EditClienteTitle_direccion}" required="true" requiredMessage="#{bundles.EditClienteRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundles.EditClienteLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{clienteController.selected.telefono}" title="#{bundles.EditClienteTitle_telefono}" required="true" requiredMessage="#{bundles.EditClienteRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundles.EditClienteLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{clienteController.selected.estado}" title="#{bundles.EditClienteTitle_estado}" required="true" requiredMessage="#{bundles.EditClienteRequiredMessage_estado}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{clienteController.update}" value="#{bundles.EditClienteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundles.EditClienteViewLink}"/>
+                <br />
+                <h:commandLink action="#{clienteController.prepareList}" value="#{bundles.EditClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundles.EditClienteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

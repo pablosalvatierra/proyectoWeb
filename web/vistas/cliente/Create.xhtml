@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundles.CreateClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundles.CreateClienteLabel_codCli}" for="codCli" />
+                    <h:inputText id="codCli" value="#{clienteController.selected.codCli}" title="#{bundles.CreateClienteTitle_codCli}" required="true" requiredMessage="#{bundles.CreateClienteRequiredMessage_codCli}"/>
+                    <h:outputLabel value="#{bundles.CreateClienteLabel_ci}" for="ci" />
+                    <h:inputText id="ci" value="#{clienteController.selected.ci}" title="#{bundles.CreateClienteTitle_ci}" required="true" requiredMessage="#{bundles.CreateClienteRequiredMessage_ci}"/>
+                    <h:outputLabel value="#{bundles.CreateClienteLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{clienteController.selected.nombres}" title="#{bundles.CreateClienteTitle_nombres}" required="true" requiredMessage="#{bundles.CreateClienteRequiredMessage_nombres}"/>
+                    <h:outputLabel value="#{bundles.CreateClienteLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundles.CreateClienteTitle_direccion}" required="true" requiredMessage="#{bundles.CreateClienteRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundles.CreateClienteLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{clienteController.selected.telefono}" title="#{bundles.CreateClienteTitle_telefono}" required="true" requiredMessage="#{bundles.CreateClienteRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundles.CreateClienteLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{clienteController.selected.estado}" title="#{bundles.CreateClienteTitle_estado}" required="true" requiredMessage="#{bundles.CreateClienteRequiredMessage_estado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clienteController.create}" value="#{bundles.CreateClienteSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{clienteController.prepareList}" value="#{bundles.CreateClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundles.CreateClienteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
